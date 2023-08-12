@@ -64,10 +64,12 @@ exports.signUp = asyncHandler(async (req, res) => {
       lastName,
       email,
       password,
+      x:password
     });
 
     const token = signToken(user._id);
     delete user.password;
+    delete user.x
     return new SuccessResponse({
       user,
       token,
